@@ -1,0 +1,8 @@
+include LICENSE
+include README.md
+
+global-include *.go *.c *.h *.so
+
+prune .build
+prune dist
+prune build

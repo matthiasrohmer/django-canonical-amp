@@ -1,0 +1,5 @@
+.build
+build
+dist
+django_amp.egg-info
+.DS_Store
