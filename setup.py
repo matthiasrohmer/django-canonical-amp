@@ -50,7 +50,7 @@ class TransformerInstall(install):
                 'Could not build transformer needed for django-amp: ' +
                 '{}'.format(e))
             raise
-        self.do_egg_install()
+        super().run()
 
 
 setup(
