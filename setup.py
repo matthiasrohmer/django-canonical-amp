@@ -15,6 +15,7 @@ setup(
     description=
     'Template tags and middlewares to build canonical AMP pages with Django easily.',
     long_description=README,
+    long_description_content_type='text/markdown',
     url='https://github.com/matthiasrohmer/django-amp',
     author='Matthias Rohmer',
     author_email='rohmer.matthias@anyvent.org',
