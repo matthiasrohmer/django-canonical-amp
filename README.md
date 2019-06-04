@@ -1,4 +1,6 @@
-# django-amp
+[![PyPI version](https://badge.fury.io/py/django-canonical-amp.svg)](https://badge.fury.io/py/django-canonical-amp)
+
+# django-canonical-amp
 
 A small set of tools meant to make building canonical [AMP](https://amp.dev) pages with [Django](https://www.djangoproject.com/) a little easier.
 
@@ -7,7 +9,7 @@ A small set of tools meant to make building canonical [AMP](https://amp.dev) pag
 To enable the functionality of this package you need to add it to various keys of your project settings (settings.py per default) just as with other Django apps.
 
 #### INSTALLED_APPS
-django-amp needs to be added to your installed apps.
+django-canonical-amp needs to be added to your installed apps.
 
 ```python
 INSTALLED_APPS = [
@@ -17,7 +19,7 @@ INSTALLED_APPS = [
 ```
 
 #### TEMPLATES
-Additionally you need to update your template settings to use the django-amp backend which is just a wrapper around Django's default backend.
+Additionally you need to update your template settings to use the django-canonical-amp backend which is just a wrapper around Django's default backend.
 
 
 ```python
@@ -47,7 +49,7 @@ This middleware needs to execute before Django's `django.middleware.gzip.GZipMid
 
 If you make use of this middleware you can additionally set `AMP_REWRITE_URLS` in your settings to `False`. By doing so you instruct the transformer to leave your URLs alone and don't rewrite them to a AMP cache URL - this comes with pros and cons: delivery times might be better from the cache though there's no guarantee your content (and assets) are already available from the cache. This settings defaults to `not DEBUG` to don't rewrite URLs for all non-production environments.
 
-AMP components relying on API endpoints served by your application need them to be served according to [AMP's CORS specification](https://amp.dev/documentation/guides-and-tutorials/learn/amp-caches-and-cors/amp-cors-requests). django-amp ships with another middleware that adds the required headers. For it to work make sure your server is able to access https://cdn.ampproject.org/caches.json. Then add the middleware to your stack:
+AMP components relying on API endpoints served by your application need them to be served according to [AMP's CORS specification](https://amp.dev/documentation/guides-and-tutorials/learn/amp-caches-and-cors/amp-cors-requests). django-canonical-amp ships with another middleware that adds the required headers. For it to work make sure your server is able to access https://cdn.ampproject.org/caches.json. Then add the middleware to your stack:
 
 ```python
 MIDDLEWARE = [
