@@ -1,6 +1,6 @@
 .build
 build
 dist
-django_amp.egg-info
+*.egg-info
 .DS_Store
 __pycache__
