@@ -23,7 +23,7 @@ Additionally you need to update your template settings to use the django-amp bac
 ```python
 TEMPLATES = [
   {
-    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'BACKEND': 'amp.template.backends.amp.AmpTemplates',
     # ...
   },
 ]
@@ -46,6 +46,15 @@ MIDDLEWARE = [
 This middleware needs to execute before Django's `django.middleware.gzip.GZipMiddleware` for the transformer to be able to alter the response.
 
 If you make use of this middleware you can additionally set `AMP_REWRITE_URLS` in your settings to `False`. By doing so you instruct the transformer to leave your URLs alone and don't rewrite them to a AMP cache URL - this comes with pros and cons: delivery times might be better from the cache though there's no guarantee your content (and assets) are already available from the cache. This settings defaults to `not DEBUG` to don't rewrite URLs for all non-production environments.
+
+AMP components relying on API endpoints served by your application need them to be served according to [AMP's CORS specification](https://amp.dev/documentation/guides-and-tutorials/learn/amp-caches-and-cors/amp-cors-requests). django-amp ships with another middleware that adds the required headers. For it to work make sure your server is able to access https://cdn.ampproject.org/caches.json. Then add the middleware to your stack:
+
+```python
+MIDDLEWARE = [
+  # ...
+  'amp.middleware.AmpCorsMiddleware',
+]
+```
 
 ## Usage
 The basic functionality of the package are two template tags that are available after installation. They make it able to dynamically define used [AMP components](https://amp.dev/documentation/components/). For them to and up in the `<head>` of your HTML make sure you add the `{% amp.components %}` tag like so:
