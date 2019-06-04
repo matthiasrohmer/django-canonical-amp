@@ -8,12 +8,12 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
-    name='django-amp',
+    name='django-canonical-amp',
     version='0.1b',
     packages=find_packages(),
     license='Apache License 2.0',
     description=
-    'Template tags and middlewares to make building AMP pages with Django easier.',
+    'Template tags and middlewares to build canonical AMP pages with Django easily.',
     long_description=README,
     url='https://github.com/matthiasrohmer/django-amp',
     author='Matthias Rohmer',
@@ -25,9 +25,8 @@ setup(
         'Environment :: Web Environment',
         'Framework :: Django',
         'Framework :: Django :: 2.1',
-        'Framework :: AMP',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apache License 2.0',
+        'License :: OSI Approved :: Apache Software License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3.5',
