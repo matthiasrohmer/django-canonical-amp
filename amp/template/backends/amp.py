@@ -20,7 +20,9 @@ class AmpTemplate(Template):
     def render(self, context=None, request=None):
         amp_components_manager = AmpComponentsManager()
         context['_amp_components_manager'] = amp_components_manager
-        context = make_context(context, request, autoescape=self.backend.engine.autoescape)
+        context = make_context(context,
+                               request,
+                               autoescape=self.backend.engine.autoescape)
         try:
             rendered_template = self.template.render(context)
         except TemplateDoesNotExist as exc:
